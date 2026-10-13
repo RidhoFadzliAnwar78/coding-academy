@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>Coding Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="logo.svg">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="bar">
+            <a href="#" class="logo" aria-label="Coding Academy - Beranda">
+                Coding Academy<span>.</span>
+            </a>
+
+            <nav aria-label="Navigasi utama">
+                <button type="button" class="nav-btn on" data-page="gallery">
+                    Gallery
+                </button>
+                <button type="button" class="nav-btn" data-page="daftar">
+                    Pendaftaran
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <!-- HALAMAN GALLERY -->
+        <section id="gallery">
+            <div class="hero">
+                <span class="eyebrow">LEARN • BUILD • CREATE</span>
+                <h1>Belajar coding dengan <span>praktik langsung.</span></h1>
+                <p>
+                    Intip keseruan kegiatan Coding Academy, mulai dari
+                    belajar dasar pemrograman hingga membuat proyek digital
+                    bersama mentor dan teman satu tim.
+                </p>
+
+                <button type="button" class="btn pri" data-page="daftar">
+                    Daftar Sekarang <span aria-hidden="true">↗</span>
+                </button>
+            </div>
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">KEGIATAN KAMI</span>
+                    <h2>Gallery Pelatihan</h2>
+                </div>
+                <p>Belajar bareng, bikin karya bareng.</p>
+            </div>
+
+            <div class="grid" id="grid">
+                <p class="loading">Memuat gallery...</p>
+            </div>
+        </section>
+
+        <!-- HALAMAN PENDAFTARAN -->
+        <section id="daftar" class="hide">
+            <div class="form-intro">
+                <span class="eyebrow">GABUNG BERSAMA KAMI</span>
+                <h1>Mulai perjalanan <span>coding-mu.</span></h1>
+                <p>Lengkapi data berikut untuk mendaftar sebagai peserta Coding Academy.</p>
+            </div>
+
+            <div class="panel" id="formPanel">
+                <div class="ph">
+                    <span class="eyebrow">FORMULIR PESERTA</span>
+                    <h2>Form Pendaftaran</h2>
+                    <p>Isi semua data dengan benar.</p>
+                </div>
+
+                <div class="pb">
+                    <form id="form" novalidate>
+                        <div class="f" data-f="nik">
+                            <label for="nik">NIK <span>*</span></label>
+                            <div>
+                                <input
+                                    id="nik"
+                                    name="nik"
+                                    type="text"
+                                    inputmode="numeric"
+                                    maxlength="16"
+                                    placeholder="Masukkan 16 digit NIK"
+                                    autocomplete="off"
+                                    required
+                                >
+                                <small class="err">NIK harus terdiri dari 16 digit angka.</small>
+                            </div>
+                        </div>
+
+                        <div class="f" data-f="nama">
+                            <label for="nama">Nama Lengkap <span>*</span></label>
+                            <div>
+                                <input
+                                    id="nama"
+                                    name="nama"
+                                    type="text"
+                                    placeholder="Masukkan nama lengkap"
+                                    autocomplete="name"
+                                    required
+                                >
+                                <small class="err">Masukkan nama lengkap yang valid, minimal 3 karakter.</small>
+                            </div>
+                        </div>
+
+                        <fieldset class="f fieldset" data-f="jk">
+                            <legend>Jenis Kelamin <span>*</span></legend>
+                            <div>
+                                <div class="opts">
+                                    <label class="opt">
+                                        <input type="radio" name="jk" value="Laki-laki">
+                                        <span class="radio-ui"></span>
+                                        Laki-laki
+                                    </label>
+
+                                    <label class="opt">
+                                        <input type="radio" name="jk" value="Perempuan">
+                                        <span class="radio-ui"></span>
+                                        Perempuan
+                                    </label>
+                                </div>
+                                <small class="err">Silakan pilih jenis kelamin.</small>
+                            </div>
+                        </fieldset>
+
+                        <div class="f" data-f="hp">
+                            <label for="hp">Nomor HP <span>*</span></label>
+                            <div>
+                                <input
+                                    id="hp"
+                                    name="hp"
+                                    type="tel"
+                                    inputmode="tel"
+                                    placeholder="Contoh: 081234567890"
+                                    autocomplete="tel"
+                                    required
+                                >
+                                <small class="err">Masukkan nomor HP Indonesia yang valid.</small>
+                            </div>
+                        </div>
+
+                        <div class="f top" data-f="alamat">
+                            <label for="alamat">Alamat <span>*</span></label>
+                            <div>
+                                <textarea
+                                    id="alamat"
+                                    name="alamat"
+                                    rows="3"
+                                    placeholder="Jalan, RT/RW, kelurahan, kota"
+                                    autocomplete="street-address"
+                                    required
+                                ></textarea>
+                                <small class="err">Alamat minimal 10 karakter.</small>
+                            </div>
+                        </div>
+
+                        <fieldset class="f fieldset" data-f="bahasa">
+                            <legend>Bahasa Pemrograman <span>*</span></legend>
+                            <div>
+                                <div class="opts language-options" id="langs">
+                                    <!-- Pilihan dibuat melalui JavaScript -->
+                                </div>
+                                <small class="err">Silakan pilih bahasa pemrograman yang diminati.</small>
+                            </div>
+                        </fieldset>
+
+                        <p class="required-note"><span>*</span> Wajib diisi</p>
+
+                        <div class="acts">
+                            <button type="submit" class="btn pri">Simpan Data</button>
+                            <button type="reset" class="btn sec" id="rst">Kosongkan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- HASIL PENDAFTARAN -->
+            <div class="panel hide" id="resPanel" aria-live="polite">
+                <div class="ph">
+                    <span class="eyebrow">KONFIRMASI DATA</span>
+                    <h2>Data Peserta</h2>
+                    <p>Periksa kembali data pendaftaranmu.</p>
+                </div>
+
+                <div class="pb">
+                    <div class="ok">
+                        <span aria-hidden="true">✓</span>
+                        <div>
+                            <strong>Pendaftaran berhasil dikonfirmasi!</strong>
+                            <p>Berikut adalah data yang kamu masukkan.</p>
+                        </div>
+                    </div>
+                    <dl id="res"></dl>
+                    <div class="acts">
+                        <button type="button" class="btn pri" id="again">
+                            Daftarkan Peserta Baru
+                        </button>
+                        <button type="button" class="btn sec" data-page="gallery">
+                            Kembali ke Gallery
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>© 2026 Coding Academy. Belajar, praktik, berkarya.</p>
+    </footer>
+</body>
+</html>
